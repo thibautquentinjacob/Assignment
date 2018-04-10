@@ -1,5 +1,7 @@
 # Assignment
 
+[Live demo](http://thibautjacob.com/assignment) | [Video](https://streamable.com/cy7gx)
+
 ## Tech used
 
 PHP 7, Angular 5
@@ -23,6 +25,8 @@ Contains both data models used in the API:
 ## Client
 
 Polls the API, display dishes and let users add them to the cart.
+
+IMPORTANT: Please set the correct API route in services/dishes-api-service.ts
 
 ### Installing dependencies
 `npm install`
