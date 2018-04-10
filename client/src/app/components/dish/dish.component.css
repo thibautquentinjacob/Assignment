@@ -1,0 +1,52 @@
+.card {
+    border-radius: 5px;
+}
+
+.card .card-content {
+    padding-top: 0;
+    padding-bottom: 5px;
+}
+
+.card .card-image img {
+    max-height: 200px;
+    overflow: hidden;
+}
+
+.card .card-title {
+    font-size: 1em;
+    font-weight: 500;
+}
+
+.svg-inline--fa {
+    position: relative;
+    float: right;
+    font-size: 2em;
+    filter: drop-shadow( 0 0 2px #000 );
+    color: white;
+    transition: color 0.2s;
+}
+
+.svg-inline--fa:hover {
+    color: #fbde76;
+    transition: color 0.2s;
+    cursor: pointer;
+}
+
+.fa-times-circle, .fa-seedling {
+    filter: none;
+    color: black;
+}
+
+.fa-seedling {
+    width: 18px;
+}
+
+.fa-plus-circle {
+    top: -190px;
+    left: -10px;
+}
+
+.dish-additional-information {
+    font-size: 0.9em;
+    font-weight: 500;
+}

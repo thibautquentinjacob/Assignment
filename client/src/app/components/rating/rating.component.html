@@ -1,0 +1,4 @@
+<div class="rating right">
+    <i *ngFor="let fullStar of rating" [ngClass]="fullStar === 1 ? 'fas fa-star' : 'far fa-star'"></i>
+    <!-- <i class="far fa-star" *ngFor="let emptyStar of {{5 - rating}}"></i> -->
+</div>

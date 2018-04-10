@@ -1,0 +1,67 @@
+svg {
+    margin-right: 10px;
+}
+
+.brand-logo {
+    margin-left: 10px;
+    float: left;
+    font-family: 'Merriweather', serif;
+}
+
+.brand-logo span {
+    color: red;
+}
+
+mz-navbar-item-container a {
+    transition: color 0.2s;
+}
+
+mz-navbar-item-container a:hover {
+    color: #fbde76;
+    transition: color 0.2s;
+}
+
+.fixed {
+    position: fixed;
+    z-index: 999999;
+}
+
+.image-wrapper {
+    max-height: 400px;
+    overflow: hidden;
+}
+
+main {
+    /* margin-left: -11px; */
+}
+
+.mobile-footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    z-index: 999999;
+}
+
+.mobile-footer-padding {
+    height: 30px;
+}
+
+.fa-certificate {
+    position: relative;
+    top: -10px;
+    left: 10px;
+    color: red;
+}
+
+li.active {
+    background-color: rgba(228, 10, 10, 0.68)!important;
+}
+
+input[type="number"] {
+    position: relative;
+    top: -12px;
+}
+
+.cart-section {
+    font-weight: 500;
+}

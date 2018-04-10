@@ -1,0 +1,103 @@
+<header>
+    <mz-navbar navbarClass="black">
+        <a href="#" class="brand-logo left">Fancy food<span>.</span></a>
+        <!-- Desktop navbar -->
+        <mz-navbar-item-container [align]="'right'" class="hide-on-small-only">
+            <mz-navbar-item [active]="true"><a href="#Entrées"><i class="fab fa-pagelines"></i>Entrées</a></mz-navbar-item>
+            <mz-navbar-item><a href="#Plats"><i class="fas fa-utensils"></i>Plats</a></mz-navbar-item>
+            <mz-navbar-item><a href="#Desserts"><i class="fas fa-coffee"></i>Desserts</a></mz-navbar-item>
+            <!-- Clicking on the cart link opens the cart -->
+            <mz-navbar-item (click)="cartModal.open()">
+                <a href="#cart">
+                    <!-- Hides red icon if no products are in the cart -->
+                    <i class="fas fa-certificate" *ngIf="dishesInCart"></i>
+                    <i class="fas fa-shopping-cart"></i>
+                    <!-- Show product amount in the cart -->
+                    Panier ({{ amountInCart }})
+                </a>
+            </mz-navbar-item>
+        </mz-navbar-item-container>
+    </mz-navbar>
+</header>
+<main>
+    <!-- Fancy picture -->
+    <div class="image-wrapper row">
+        <img class="responsive-img" src="https://cdn.cnn.com/cnnnext/dam/assets/171212124646-09-new-years-food-pickled-herring.jpg">
+    </div>
+
+    <!-- Starters -->
+    <div id="Entrées">
+        <app-section [title]="'Entrées'"></app-section>
+        <app-dish-list [category]="'STARTER'"></app-dish-list>
+    </div>
+
+    <!-- Dishes -->
+    <div id="Plats">
+        <app-section [title]="'Plats'"></app-section>
+        <app-dish-list [category]="'MAIN_COURSE'"></app-dish-list>
+    </div>
+
+    <!-- Desserts -->
+    <div id="Desserts">
+        <app-section [title]="'Desserts'"></app-section>
+        <app-dish-list [category]="'DESSERT'"></app-dish-list>
+    </div>
+
+    <!-- Cart content -->
+    <mz-modal #cartModal>
+        <mz-modal-header>
+            <h4>Panier</h4>
+        </mz-modal-header>
+        <mz-modal-content>
+            <!-- Display list of dishes in the cart -->
+            <div *ngFor="let element of cartContent">
+                <div class="row">
+                    <span class="cart-section">{{element.dish.name}}</span>
+                </div>
+                <div class="row">
+                    <input type="number" class="col s2" value="{{element.amount}}" [(ngModel)]=element.amount (change)="changeHandler(element)">
+                    <span class="col s8"> x {{element.dish.price | currency:'EUR':'fr' }}</span>
+                    <span class="col s2 text-right">{{element.dish.price * element.amount | currency:'EUR':'fr' }}</span>
+                </div>
+            </div>
+            <div class="row">
+                <hr>
+            </div>
+            <!-- Display total amount of products in cart and total price -->
+            <div class="row">
+                <span class="left cart-section col s10">Total ({{ amountInCart }} articles)</span>
+                <span class="right col s2">{{ cartPrice | currency:'EUR':'fr' }}</span>
+            </div>
+            <div class="row">
+                <a href="#" class="btn col l4 offset-l4 s8 offset-s2 black" mz-modal-close>Payer</a>
+            </div>
+        </mz-modal-content>
+    </mz-modal>
+
+</main>
+<!-- Footer -->
+<footer class="page-footer black">
+    <!-- Mobile footer is fixed on the bottom -->
+    <div class="mobile-footer-padding hide-on-med-and-up"></div>
+    <div class="mobile-footer hide-on-med-and-up">
+        <mz-navbar navbarClass="black">
+            <mz-navbar-item-container [align]="'center'" class="row">
+                <mz-navbar-item class="col s3 flow-text" [active]="true"><a href="#Entrées"><i class="fab fa-pagelines"></i></a></mz-navbar-item>
+                <mz-navbar-item class="col s3 flow-text"><a href="#Plats"><i class="fas fa-utensils"></i></a></mz-navbar-item>
+                <mz-navbar-item class="col s3 flow-text"><a href="#Desserts"><i class="fas fa-coffee"></i></a></mz-navbar-item>
+                <mz-navbar-item class="col s3 flow-text right" (click)="cartModal.open()">
+                    <a href="#cart">
+                        <i class="fas fa-certificate" *ngIf="dishesInCart"></i>
+                        <i class="fas fa-shopping-cart"></i>
+                    </a>
+                </mz-navbar-item>
+            </mz-navbar-item-container>
+        </mz-navbar>
+    </div>
+    <!-- Desktop footer -->
+    <div class="footer-copyright hide-on-small-only">
+        <div class="container">
+            © 2018 Copyright Fancy food.
+        </div>
+    </div>
+</footer>

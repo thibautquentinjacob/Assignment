@@ -1,0 +1,43 @@
+<div class="col s12 m6 l4">
+    <div class="card hoverable">
+        <div class="card-image waves-effect waves-block waves-light">
+            <img src="{{dish.picture}}" class="activator">
+            <div (click)="addToCart(dish)">
+                <i class="fas fa-plus-circle"></i>
+            </div>
+        </div>
+        <div class="card-content">
+            <span class="card-title">
+                <div class="row">
+                    <span class="col s6">{{dish.name}}</span>
+                    <app-rating class="col s6" [rating]="dish.stars"></app-rating>
+                </div>
+                <div class="row dish-additional-information">
+                    <span class="col s3">{{dish.calories | number: '.0-0' }} cal</span>
+                    <span class="col s3"><i class="fas fa-seedling" [ngStyle]="{ color: dish.vegan ? 'green' : dish.vegetarian ? 'orange' : 'white' }"></i></span>
+                    <span class="col s3"></span>
+                    <span class="col s3">{{ dish.price | currency:'EUR':'fr' }}</span>
+                </div>
+            </span>
+        </div>
+        <div class="card-reveal activator">
+            <span class="card-title activator grey-text text-darken-4">{{dish.name}}</span>
+            <p>
+                {{dish.description}}
+            </p>
+            <div class="row">
+                Plat {{dish.vegan ? 'vegan' : dish.vegetarian ? 'végétarien' : 'omnivore'}}
+            </div>
+            <div class="row">
+                <span style="font-weight: bold">Ingredients</span>
+            </div>
+            <div class="row">
+                <ul>
+                    <li *ngFor="let ingredient of dish.ingredients">
+                        <span class="col s4">{{ingredient.quantity}}g</span><span class="col s4">{{ingredient.name}}</span><span class="col s4">{{ingredient.calories | number: '.0-0' }} cal</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
